@@ -1,23 +1,25 @@
 Can’t Stop Won’t Stop
 ================
 Cameron
-3/18/2021
+3/19/2021
+
+![Gamestop Logo](gamestop.svg)
 
 ## Correlations
 
-Everyone is talking about Gamestop these days and I can’t deny there’s
-an interesting story there, I’m just not sure exactly what it is. I was
-reading one person’s take on it the other day and they were describing
-how they believe that there will be some major market movement whenever
-the ball finally drops on the short interest in that stock. One of the
-main thrusts of their argument was to say that Gamestop has been
-inversely correlated with the market overall and that this is due to the
-short interests having to sell other stocks - dropping their price - in
-order to have money to make Gamestop purchases or re-up on their short
-inerest, which increases Gamestop’s price. Seems reasonable, and I too
-have noticed that Gamestop has - at least recently - been performing the
-opposite of the rest of the market. This workbook is my effort to prove
-- or disprove - this correlation.
+Everyone is talking about Gamestop (/*G**M**E*/) these days and I can’t
+deny there’s an interesting story there, I’m just not sure exactly what
+it is. I was reading one person’s take on it the other day and they were
+describing how they believe that there will be some major market
+movement whenever the ball finally drops on the short interest in that
+stock. One of the main thrusts of their argument was to say that
+Gamestop has been inversely correlated with the market overall and that
+this is due to the short interests having to sell other stocks -
+dropping their price - in order to have money to make Gamestop purchases
+or re-up on their short interest, which increases Gamestop’s price.
+Seems reasonable, and I too have noticed that Gamestop has - at least
+recently - been performing the opposite of the rest of the market. This
+workbook is my effort to prove (or disprove) this correlation.
 
 For the purposes of this workbook, I will only be going as granular as
 daily performance. I don’t have a good way right now for intraday data.
@@ -91,12 +93,13 @@ bbyccfvalues
     ##      1      2      3      4      5      6      7      8      9     10 
     ## -0.065 -0.075 -0.046 -0.019 -0.026 -0.005  0.050  0.043  0.042  0.071
 
-Here we can see that there is indeed a correlation between GME and BBY,
-though not a particularly strong one. What’s interesting is that GME
-appears to predict BBY instead of the other way around. You can see this
-in how the largest bars from the above chart are when Lag is &gt;0.
-We’re going to try and predict *B**B**Y* using *G**M**E* with a 1 and 2
-day lag using a linear model. Let’s see how this goes…
+Here we can see that there is indeed a correlation between *G**M**E* and
+*B**B**Y*, though not a particularly strong one. What’s interesting is
+that *G**M**E* appears to predict *B**B**Y* instead of the other way
+around. You can see this in how the largest bars from the above chart
+are when Lag is &gt;0. We’re going to try and predict *B**B**Y* using
+*G**M**E* with a 1 and 2 day lag using a linear model. Let’s see how
+this goes…
 
 ``` r
 x <- cbind(lag(GME), lag(GME, n=2))
