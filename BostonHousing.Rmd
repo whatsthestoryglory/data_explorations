@@ -188,7 +188,7 @@ We've improved our best score from RMSE = `r min(reduced_model$results$RMSE)` an
 
 ```{r try_log_on_reduced_df, results='hide'}
 # Create reduced df
-log_df <- log1p(removed_df %>% select(!medv))
+log_df <- log1p(removed_df%>% select(!medv))
 log_df$medv <- removed_df$medv
 # Define training control
 set.seed(123)
@@ -208,13 +208,13 @@ print(log_model)
 
 Oh well, that one didn't seem to work well. I was pretty ham-fisted with the application of a log to all the predictors. Let's go back and see if being a little more careful does anything to improve matters.
 
-``` {r echo=FALSE} 
+```{r echo=FALSE}
 histo_dist_plot 
 ```
 
 Let's compare this to the log applied dataset.
 
-``` {r}
+```{r}
 log_d <- melt(log_df)
 log_histo_dist_plot <- ggplot(log_d,aes(x = value)) + 
     facet_wrap(~variable,scales = "free_x") + 
@@ -235,4 +235,18 @@ cat(paste(
 )
 ```
 
-What I've done here to control for the log transformation is to calculate RMSE / $\bar{y}$ or Root Mean Square Error divided by the mean of the samples. The results suggest we've made a dramatic improvement in our model by including the log transformation step.
+What I've done here to control for the log transformation is to calculate RMSE / $\\bar{y}$ or Root Mean Square Error divided by the mean of the samples. The results suggest we've made a dramatic improvement in our model by including the log transformation step.
+
+```{r}
+cat(paste(
+  paste("Log Model RMSE: ", min(log_model$results$RMSE), "  MAE: ", min(log_model$results$MAE)),
+  paste("Removed $50k Model RMSE: ", min(removed_top_model$results$RMSE), "  MAE: ", min(removed_top_model$results$MAE)),
+  paste("Reduced Predicors Model RMSE: ", min(reduced_model$results$RMSE), "  MAE: ", min(reduced_model$results$MAE)),
+  sep = '\n'
+))
+
+```
+
+## Results
+
+We have a best RMSE of around `r min(log_model$results$RMSE)` and MAE of `r min(log_model$results$MAE)`. This puts me around 10th place in the latest [Kaggle](https://www.kaggle.com) competition I've seen using this data. That'll be all for now, next I'm going to tackle something with more participants.

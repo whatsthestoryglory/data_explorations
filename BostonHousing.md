@@ -408,7 +408,7 @@ log transformation to remove some of the skew in the data
 
 ``` r
 # Create reduced df
-log_df <- log1p(removed_df %>% select(!medv))
+log_df <- log1p(removed_df%>% select(!medv))
 log_df$medv <- removed_df$medv
 # Define training control
 set.seed(123)
@@ -508,6 +508,26 @@ cat(paste(
     ## Reduced Predictors Performance: 0.15371013157153
 
 What I’ve done here to control for the log transformation is to
-calculate RMSE / *ȳ* or Root Mean Square Error divided by the mean of
-the samples. The results suggest we’ve made a dramatic improvement in
-our model by including the log transformation step.
+calculate RMSE / $\\\\bar{y}$ or Root Mean Square Error divided by the
+mean of the samples. The results suggest we’ve made a dramatic
+improvement in our model by including the log transformation step.
+
+``` r
+cat(paste(
+  paste("Log Model RMSE: ", min(log_model$results$RMSE), "  MAE: ", min(log_model$results$MAE)),
+  paste("Removed $50k Model RMSE: ", min(removed_top_model$results$RMSE), "  MAE: ", min(removed_top_model$results$MAE)),
+  paste("Reduced Predicors Model RMSE: ", min(reduced_model$results$RMSE), "  MAE: ", min(reduced_model$results$MAE)),
+  sep = '\n'
+))
+```
+
+    ## Log Model RMSE:  2.66825799485526   MAE:  1.95937101838167
+    ## Removed $50k Model RMSE:  2.6673202068589   MAE:  1.96408487996363
+    ## Reduced Predicors Model RMSE:  3.46352062475485   MAE:  2.40493999108802
+
+## Results
+
+We have a best RMSE of around 2.668258 and MAE of 1.959371. This puts me
+around 10th place in the latest [Kaggle](https://www.kaggle.com)
+competition I’ve seen using this data. That’ll be all for now, next I’m
+going to tackle something with more participants.
