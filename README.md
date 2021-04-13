@@ -10,5 +10,11 @@ A collection of individual data exploration projects.  Larger projects will be s
 - [Another Project](another_project.md)
   This is another project to test that github is working for me through Atom.  This line will be removed shortly...
 
-
 More to come soon, including a machine learning model on predicting house prices in Ames, IA and a tool to compare performance of a Questrade stock portfolio and trades against index funds
+
+
+Add a test line
+Because it's fun
+
+
+WEEEEEEEEEEEE
