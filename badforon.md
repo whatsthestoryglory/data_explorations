@@ -29,6 +29,10 @@ actual spend of $38M in 2016-2017, where in the 2018 budget the combined
 spend is only listed as $34M. `Municipal Affairs and Housing` was
 another interesting one. In 2018 there are two separate line items for
 Time Limited Investments under `Municipal Affairs/Housing`, totaling
-$550M and contributing to a total spend of $1544M. In 2020, these line
-items are combined into a single line, but now show as being worth
-$565M.
+$550M and contributing to a total spend of $1544M. In 2019, these line
+items are combined into a single line, but now show as costing $565M,
+though the otal `Municipal Affairs and Housing` amount remains at
+$1544M. The `International Trade` line item appears to just completely
+disappear in 2019, as does `Status of Women` and the entirety of
+`Community Safety and Correctional Services`. Even the
+`Interest on Debt` total appears to change from one year to the next.
