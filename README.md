@@ -7,6 +7,7 @@ A collection of individual data exploration projects.  Larger projects will be s
 - [Gamestop vs Market](gamestop_vs_market.md)
   This project is a quick exploration into the Gamestop stock price and a theory I had seen posted regarding the performance of the stock.  In short, the theory was that Gamestop had been performing inverse to the market and that could be used to predict how the saga would progress.
   
-
+- [Bad for ON](badforon.md)
+  This project is a review of budgeting and other decisions made by current and previous Ontario governments and the consequences thereof.  This will likely spin off into its own project and repo, but for now I'm keeping it in here.  I am using this project as an opportunity to build my skills in PowerBI by performing my ETL tasks there.
 
 More to come soon, including a machine learning model on predicting house prices in Ames, IA and a tool to compare performance of a Questrade stock portfolio and trades against index funds.
